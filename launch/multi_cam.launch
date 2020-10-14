@@ -1,0 +1,15 @@
+<launch>
+    <group ns="northwest">
+        <node name="rtsp" pkg="rtsp" type="publish" output="screen">
+            <param name="camera" value="northwest" />
+            <param name="url" value="rtsp://admin:HIKVISION7720@192.168.1.63:554/codec/channel/subtype/av_stream" />
+        </node>
+    </group>
+
+    <group ns="southwest">
+        <node name="rtsp" pkg="rtsp" type="publish">
+            <param name="camera" value="southwest" />
+            <param name="url" value="rtsp://admin:HIKVISION7720@192.168.1.64:554/codec/channel/subtype/av_stream" />
+        </node>
+    </group>
+</launch>

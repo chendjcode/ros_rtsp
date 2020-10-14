@@ -8,7 +8,6 @@ project(rtsp)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-        OpenCV
         cv_bridge
         image_transport
         roscpp
@@ -208,5 +207,7 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(public src/public.cpp)
-target_link_libraries(public ${catkin_LIBRARIES})
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable(publish src/publish.cpp)
+target_link_libraries(publish ${catkin_LIBRARIES} ${OpenCV_LIBS})

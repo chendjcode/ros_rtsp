@@ -22,7 +22,7 @@ class ImageConverter {
     cv::VideoCapture cap;
 public:
     ImageConverter()
-            : it_(nh_), cap("rtsp://admin:HIKVISION7720@192.168.1.62:554/codec/channel/subtype/av_stream") {
+            : it_(nh_), cap("rtsp://admin:HIKVISION7720@192.168.1.63:554/codec/channel/subtype/av_stream") {
         // Subscrive to input video feed and publish output video feed
         // image_sub_ = it_.subscribe("/camera/image_raw", 1, &ImageConverter::imageCb, this);
         image_pub_ = it_.advertise("/rtsp/image", 1);
